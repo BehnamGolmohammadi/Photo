@@ -30,3 +30,10 @@ class Post(models.Model):
         self.Slug,
         self.id]
         )
+
+
+class Category(models.Model):
+    Name = models.CharField(max_length= 255)
+
+    def __str__(self):
+        return self.Name
