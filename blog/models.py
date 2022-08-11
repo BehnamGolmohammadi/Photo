@@ -10,7 +10,7 @@ class Category(models.Model):
     def __str__(self):
         return self.Name
 
-
+        
 class Post(models.Model):
     Author = models.ForeignKey(User, on_delete= models.CASCADE)
     Title = models.CharField(max_length= 255)
@@ -19,7 +19,7 @@ class Post(models.Model):
     Image = models.ImageField(upload_to = 'blog/', default = 'blog/Default.png')
     Status = models.BooleanField(default= False)
     # Tags = 
-    # Category = 
+    Category = models.ManyToManyField(Category)
     Created_Date = models.DateTimeField( auto_now_add= True)
     Updated_Date = models.DateTimeField( auto_now= True)
     Published_Date = models.DateTimeField(null= True)
