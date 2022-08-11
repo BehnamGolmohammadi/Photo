@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from taggit.managers import TaggableManager
 # Create your models here.
 
 
@@ -18,7 +19,7 @@ class Post(models.Model):
     Content = models.TextField()
     Image = models.ImageField(upload_to = 'blog/', default = 'blog/Default.png')
     Status = models.BooleanField(default= False)
-    # Tags = 
+    Tags = TaggableManager()
     Category = models.ManyToManyField(Category)
     Created_Date = models.DateTimeField( auto_now_add= True)
     Updated_Date = models.DateTimeField( auto_now= True)
