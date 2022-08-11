@@ -18,7 +18,7 @@ class Post(models.Model):
     Published_Date = models.DateTimeField(null= True)
 
     class META:
-        pass
+        ordering = ['-Published_Date']
 
 
     def __str__(self):
