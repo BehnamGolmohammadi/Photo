@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Post
+from blog.models import Post, Category
 
 
 # Register your models here.
@@ -21,3 +21,8 @@ class Admin_PostCustomizations(admin.ModelAdmin):
 
 
 admin.site.register(Post, Admin_PostCustomizations)
+
+class Admin_CategoryCustomiztions(admin.ModelAdmin):
+    pass
+
+admin.site.register(Category, Admin_CategoryCustomiztions)
