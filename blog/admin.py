@@ -17,7 +17,7 @@ class Admin_PostCustomizations(admin.ModelAdmin):
     )
     list_display= ("Title", "Author" ,"Status", "Published_Date")
     list_filter= ("Status", "Author", "Published_Date")
-    search_fields= ["Title", "Author", "Content"]
+    search_fields= ["Title", "Content"]
 
 
 admin.site.register(Post, Admin_PostCustomizations)
