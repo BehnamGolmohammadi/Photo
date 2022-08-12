@@ -11,15 +11,17 @@
   </form>
   <div class="panel">
     <div class="panel-heading">
-      <h4>Categories</h4>
+      <h4>Popular Categories</h4>
     </div>
     <div class="panel-body">
       <ul class="nav">
-        <li><a href="#">Category I</a></li>
-        <li><a href="#">Category II</a></li>
-        <li><a href="#">Category III</a></li>
-        <li><a href="#">Category IV</a></li>
-        <li class="last"><a href="#">Category V</a></li>
+        {% for cat in category %}
+        {% if not forloop.last %}
+        <li><a href="{% url 'blog:category' cat=cat %}">{{cat}}</a></li>
+        {% else %}
+        <li class="last"><a href="{% url 'blog:category' cat=cat %}">{{cat}}</a></li>
+        {% endif %}
+        {% endfor %}
       </ul>
     </div>
   </div>
