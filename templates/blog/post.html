@@ -12,7 +12,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand page-scroll" href="#page-top">
+      <a class="navbar-brand page-scroll" href="{% url 'website:home' %}">
         <span>[PHOTO]</span>
       </a>
     </div>
@@ -27,46 +27,26 @@
   </div>
 </nav>
 <!-- End of Navigation Bar -->
-
 <!-- Principal Content Start -->
 <div id="single">
   <div class="container">
     <div class="post-heading" id="blog">
-      <img class="img-responsive" src="{% static 'images/blog/landscape.jpg' %}" alt="post's picture" >
+      <img class="img-responsive" src="{{ post.Image.url }}" alt="post's picture" style="max-width: 65%;" >
     </div>
     <!-- Full Article -->
     <div class="row">
-      <h2>Post Title</h2>
+      <h2>{{post.Title}}</h2>
       <hr class="subtitle">
       <div class=" block1">
         <div class="col-xs-12 col-sm-9">
-          <p>Nam luctus nunc ut orci posuere ultricies. Donec id ante nec nunc laoreet vestibulum. Nulla in tortor non
-            risus pharetra suscipit. Suspendisse nec diam gravida, scelerisque magna eget, dignissim enim. Sed eget diam
-            facilisis justo elementum aliquet quis ut felis. Vestibulum sus cipit nibh consectetur massa volutpat, vel
-            euismod lectus blandit.
+          <p>
+            {{post.Content}}
           </p>
-          <p>Minima, earum fuga maiores unde quod quae aspernatur magnam quis adipisci ipsum maxime iusto quidem?
-            Recusandae dolore ipsam eius alias quidem. Dignissimos, recusandae, saepe, omnis, non totam vero unde
-            mollitia natus aliquam magni qui quibusdam incidunt ea nihil error facere ut libero blanditiis accusamus
-            quasi facilis animi repellat consequuntur in sit rerum atque voluptatibus ipsa ullam voluptatum laborum
-            praesentium nesciunt est iusto nulla earum ab tenetur!
-          </p>
-          <p>Aliquam elementum varius adipiscing. Phasellus vulputate arcu eu scelerisque egestas. Duis lacinia, tellus
-            sed congue porta, tortor felis ornare mi, in eleifend dolor odio ac lacus. Curabitur id nisi ornare, viverra
-            lorem sed, viverra ligula. Donec eu nibh tempus, semper velit sit amet, blandit odio. Phasellus id
-            condimentum sapien, sit amet venenatis sem.
-          </p>
-          <p>Quod soluta corrupti earum officia vel inventore vitae quidem, consequuntur odit impedit, eaque dolorem
-            odio praesentium iusto amet voluptatum distinctio iste dicta maiores doloremque porro. Ipsa doloremque illum
-            animi laborum quo in nemo delectus veritatis, amet numquam doloribus a iure sequi nobis vero facere
-            necessitatibus ipsam
-          </p>
-          <h4>- By Facere</h4>
+          <h4>- By {{post.Author}}</h4>
           <hr>
           <ul class="list-inline">
-            <li>6 December |</li>
-            <li><a class="page-scroll" href="#form">COMMENT</a> |</li>
-            <li><a href="">LIKE</a></li>
+            <li>{{post.Published_Date}}</li> |
+            <li><a class="page-scroll" href="#form">COMMENT</a></li>
           </ul>
         </div>
         <div class="col-xs-12 col-sm-3">
