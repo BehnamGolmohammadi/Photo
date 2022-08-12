@@ -139,4 +139,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # taggit module settings
-TAGGIT_CASE_INSENSITIVE = True
+TAGGIT_CASE_INSENSITIVE = False
