@@ -42,10 +42,22 @@
           <p>
             {{post.Content}}
           </p>
-          <h4>- By {{post.Author}}</h4>
+          <h4>
+            <i class="fa fa-pencil"></i>
+            By {{post.Author}}</h4>
+          <h5>
+          </p><i class="fa fa-tags"></i>
+            {%for tag in post.Tags.all%}
+            {{tag}}
+            {% if not forloop.last %},{% endif %}
+            {% endfor %}
+          </h5>
           <hr>
           <ul class="list-inline">
-            <li>{{post.Published_Date}}</li> |
+            <i class="fa fa-calendar"></i>
+            <li>{{post.Published_Date}}</li>
+            | 
+            <i class="fa fa-comments-o" aria-hidden="true"></i>
             <li><a class="page-scroll" href="#form">COMMENT</a></li>
           </ul>
         </div>

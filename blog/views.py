@@ -10,6 +10,5 @@ def blog_home(request):
 
 def blog_post(request, pid):
     post = Post.objects.get(Status = True, id = pid)
-    print(post)
     Context = {'post': post}
     return render(request, 'blog/post.html', Context)
