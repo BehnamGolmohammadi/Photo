@@ -12,7 +12,7 @@ class Admin_PostCustomizations(admin.ModelAdmin):
         }),
         ('Advanced options', {
             'classes': ('wide', 'collapse', 'extrapretty'),
-            'fields': ("Status", "Published_Date", "Category", ),
+            'fields': ("Status", "Published_Date", "Category", "Tags"),
         }),
     )
     list_display= ("Title", "Author" ,"Status", "Published_Date")
