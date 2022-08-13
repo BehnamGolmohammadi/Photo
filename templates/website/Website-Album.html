@@ -1,52 +1,65 @@
 {% load static %}
 
-<!-- Navigation Table Content -->
-<div class="tab-content">
+<div id="index-body">
+  
+  <!-- Pictures Navigation table -->
+  <div class="table-responsive">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <td><a class="link active" href="#category1" data-toggle="tab">category I</a></td>
+          <td><a class="link" href="#category2" data-toggle="tab">category II</a></td>
+        </tr>
+      </thead>
+    </table>
+    <hr>
+  </div>
+  <!-- Navigation Table Content -->
+  <div class="tab-content">
 
     <!-- First Category pictures -->
     <div id="category1" class="tab-pane active">
-        <div class="row popup-gallery">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-                <div class="sol">
-                    <img class="img-responsive" src="{% static 'images/index/portfolio/1.jpg' %}"
-                        alt="First category picture">
-                    <div class="behind">
-                        <div class="head text-center">
-                            <ul class="list-inline">
-                                <li>
-                                    <a class="gallery" href="{% static 'images/index/gallery/1.jpg' %}"
-                                        data-toggle="tooltip" data-original-title="Quick View">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="tooltip" data-original-title="Click if you like it">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="tooltip" data-original-title="Download">
-                                        <i class="fa fa-download"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="tooltip" data-original-title="More information">
-                                        <i class="fa fa-info"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="row box-content">
-                            <ul class="list-inline text-center">
-                                <li><i class="fa fa-eye"></i> 1000</li>
-                                <li><i class="fa fa-heart"></i> 500</li>
-                                <li><i class="fa fa-download"></i> 100</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="row popup-gallery">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="sol">
+            <img class="img-responsive" src="{% static 'images/index/portfolio/1.jpg' %}" alt="First category picture">
+            <div class="behind">
+              <div class="head text-center">
+                <ul class="list-inline">
+                  <li>
+                    <a class="gallery" href="{% static 'images/index/gallery/1.jpg' %}" data-toggle="tooltip"
+                      data-original-title="Quick View">
+                      <i class="fa fa-eye"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-toggle="tooltip" data-original-title="Click if you like it">
+                      <i class="fa fa-heart"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-toggle="tooltip" data-original-title="Download">
+                      <i class="fa fa-download"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" data-toggle="tooltip" data-original-title="More information">
+                      <i class="fa fa-info"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="row box-content">
+                <ul class="list-inline text-center">
+                  <li><i class="fa fa-eye"></i> 1000</li>
+                  <li><i class="fa fa-heart"></i> 500</li>
+                  <li><i class="fa fa-download"></i> 100</li>
+                </ul>
+              </div>
             </div>
-            <!-- <div class="col-xs-12 col-sm-6 col-md-3">
+          </div>
+        </div>
+        <!-- <div class="col-xs-12 col-sm-6 col-md-3">
               <div class="sol">
                 <img class="img-responsive" src="{% static 'images/index/portfolio/2.jpg' %}"
                   alt="First category picture">
@@ -486,17 +499,17 @@
                 </div>
               </div>
             </div> -->
-        </div>
-        <nav class="text-center">
-            <ul class="pagination">
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#" aria-label="suivant">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a></li>
-            </ul>
-        </nav>
+      </div>
+      <nav class="text-center">
+        <ul class="pagination">
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#" aria-label="suivant">
+              <span aria-hidden="true">&raquo;</span>
+            </a></li>
+        </ul>
+      </nav>
     </div>
     <!-- End of First category pictures -->
 
@@ -1494,6 +1507,6 @@
         </div> -->
     <!-- Third Category Pictures -->
 
-</div>
-<!-- End of Navigation Table Content -->
+  </div>
+  <!-- End of Navigation Table Content -->
 </div><!-- End of Index-body box -->
