@@ -1,4 +1,6 @@
 {% load static %}
+{% load blog_tags%}
+
 <!-- Blocks of Posts -->
 <div class="col-xs-12 col-sm-8 row">
   {% for post in posts %}
@@ -12,7 +14,7 @@
         <h3><a href="{% url 'blog:post' pid=post.id%}"><strong>{{ post.Title }}</strong></a></h3>
         <hr>
         <p>
-            {{post.Content}}
+            {{post.Content|Shorter_Content:35}}
           </p>
         </div>
         <div class="post-footer">
