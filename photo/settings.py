@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 
     # installed by programmer
     'taggit',
-    'django_summernote',
 
     # Apps:
     'website.apps.WebsiteConfig',
