@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load blog_tags %}
 
 {% block content %}
 <!-- Navigation Bar -->
@@ -46,7 +47,7 @@
     </div>
   </div>    
 
-    {% include 'website/Website-Album.html' %}
+    {% Album %}
 
     {% include 'website/Website-Newslatter.html' %}
 
