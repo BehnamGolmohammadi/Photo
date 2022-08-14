@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+
+    # installed by programmer
     'taggit',
+    'django_summernote',
 
     # Apps:
     'website.apps.WebsiteConfig',
