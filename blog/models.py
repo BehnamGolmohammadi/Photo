@@ -33,9 +33,8 @@ class Post(models.Model):
         return self.Title
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail',
-        args= [self.Published_Date,
-        self.Slug,
-        self.id]
+        return reverse(
+            viewname= 'blog:post',
+            kwargs= {'pid' : self.id}
         )
 
