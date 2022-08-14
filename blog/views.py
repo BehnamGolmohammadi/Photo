@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from blog.models import Post, Category
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # Create your views here.
@@ -15,6 +16,17 @@ def blog_home(request, **kwargs):
     # get Categories
     Categories= Category.objects.all()[:10]
 
+    # Pagination
+    posts= Paginator(posts, 4)     # each page will have 4 posts
+    page = request.GET.get('page')
+    try:
+        posts = posts.page(page)
+    except PageNotAnInteger:
+        # if page is not an integer deliver first page
+        posts = posts.page(1)
+    except EmptyPage:
+        # if page is out of range deliver last page of posts
+        posts = posts.page(posts.num_pages)
 
     Context = {'posts': posts, 'category': Categories}
     return render(request, 'blog/blog.html', Context)
