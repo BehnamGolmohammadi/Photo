@@ -6,7 +6,7 @@
 {% for post in posts %}
 <div class="post">
     <div class="post-heading">
-      
+      <span>{{post.Published_Date|naturaltime}}</span>
       <a href="{% url 'blog:post' pid=post.id %}">
         <img class="img-responsive" src="{{ post.Image.url }}" alt="post's picture">
       </a>
@@ -14,14 +14,11 @@
     <div class="post-body">
       <span>
         <i class="fa fa-comments sr-icons"></i> 10 Comments 
-        &emsp;|
-        <i class="fa fa-calendar sr-icons"></i>&ensp;{{post.Published_Date|naturaltime}}
+        &ensp;&ensp;&nbsp; | &emsp;&emsp;
+        <i class="fa fa-pencil sr-icons"></i> {{post.Author}}
       </span>
       <h4 class="text-left"><a href="{% url 'blog:post' pid=post.id %}"><strong>{{post.Title}}</strong></a></h4>
       <h5 class="text-left">{{post.Content|Shorter_Content:7}}</h5>
     </div>
-    {% if not forloop.last %}
-    <hr>
-    {% endif %}
   </div>
 {% endfor %}
