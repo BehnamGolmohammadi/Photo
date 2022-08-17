@@ -15,6 +15,7 @@
           <td><a class="link" href="#category{{key.id}}" data-toggle="tab">{{key}}</a></td>
           {% endif %}
           {% endfor %}
+          <td><a class="link" href="{% url 'blog:home' %}" >More Posts</a></td>
         </tr>
       </thead>
     </table>
@@ -59,16 +60,6 @@
         </div>
         {% endfor %}
       </div>
-      <nav class="text-center">
-        <ul class="pagination">
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#" aria-label="suivant">
-              <span aria-hidden="true">&raquo;</span>
-            </a></li>
-        </ul>
-      </nav>
     </div>
     {% else %}
     <div id="category{{key.id}}" class="tab-pane">
@@ -106,16 +97,6 @@
 
 
       </div>
-      <nav class="text-center">
-        <ul class="pagination">
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#" aria-label="suivant">
-              <span aria-hidden="true">&raquo;</span>
-            </a></li>
-        </ul>
-      </nav>
     </div>
     {% endif %}
     {% endfor %}

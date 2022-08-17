@@ -17,10 +17,11 @@ def Shorter_Content(Content, UpTo = 10):
 @register.inclusion_tag('website/Website-Album.html')
 def Album():
     posts= Post.objects.filter(Status = True).order_by('-Published_Date')
-    categories = Category.objects.all()[:10]
+    categories = Category.objects.all()
     Category_Dict= dict()
 
     for category in categories:
-        Category_Dict[category] = list(posts.filter(Category = category))
+        Category_Dict[category] = list(posts.filter(Category = category))[:12]
+    Category_Dict = dict(sorted(Category_Dict.items(), key=lambda item: -len(item[1]))[:9])
     Context = {'Category_Dict': Category_Dict}
     return Context
