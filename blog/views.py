@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from blog.models import Post, Category
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.utils import timezone
 
 
 # Create your views here.
@@ -11,13 +12,17 @@ def blog_home(request, **kwargs):
         if request.method == 'GET' and (search := request.GET.get('search')):
             posts = Post.objects.filter(Content__contains = search)
         else:
-            posts= Post.objects.filter(Status = True)
+            Local_Time = timezone.localtime(timezone.now())
+            posts= Post.objects.filter(Published_Date__lte = Local_Time).order_by('-Published_Date')
+            for post in posts:
+                if not post.Status: post.Status = True
+                post.save()
 
     # get Categories
     Categories= Category.objects.all()[:10]
 
     # Pagination
-    posts= Paginator(posts, 4)     # each page will have 4 posts
+    posts= Paginator(posts, 3)     # each page will have 3 posts
     page = request.GET.get('page')
     try:
         posts = posts.page(page)
