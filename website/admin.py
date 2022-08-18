@@ -7,15 +7,15 @@ class Admin_ContactCustomizations(admin.ModelAdmin):
     empty_value_display= 'No Information'
     fieldsets = (
         ('Main options', {
-            'fields': (("Name", "Email"), ("Subject", "Message"))
+            'fields': (("First_Name", "Last_Name"), ("Email"), ("Subject", "Message"))
         }),
-        ('Advanced options', {
-            'classes': ('wide', 'collapse', 'extrapretty'),
-            'fields': ("Created_Date", "Updated_Date"),
-        }),
+        # ('Advanced options', {
+        #     'classes': ('wide', 'collapse', 'extrapretty'),
+        #     'fields': ("Created_Date", "Updated_Date"),
+        # }),
     )
-    list_display= ("Name", "Subject", "Email" ,"Created_Date")
+    list_display= ("First_Name", "Last_Name", "Subject", "Email" ,"Created_Date")
     list_filter= ("Subject", "Created_Date")
-    search_fields= ["Name", "Subject", "Message"]
+    search_fields= ["First_Name", "Last_Name", "Subject", "Message"]
     
 admin.site.register(Contact, Admin_ContactCustomizations)
