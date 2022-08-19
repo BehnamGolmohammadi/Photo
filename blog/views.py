@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404
-from blog.models import Post, Category
+from django.shortcuts import render, get_object_or_404, redirect
+from blog.models import Post, Category, Comment
+from blog.forms import CommentForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
+from django.contrib import messages
 
 
 # Create your views here.
@@ -37,7 +39,29 @@ def blog_home(request, **kwargs):
     return render(request, 'blog/blog.html', Context)
 
 def blog_post(request, pid):
+    if request.method == 'POST':
+        Form = CommentForm(request.POST, request.FILES)
+        print(Form)
+        if Form.is_valid():
+            try:
+                Form.save()
+                msg = 'Your Comment submitted and will shown after we check it.'
+                messages.success(request, msg)
+                return redirect('/')
+            except:
+                msg = 'Your Comment did not submitted!'
+                messages.error(request, msg)
+                return redirect(f'/blog/{pid}#form')
+        else:
+            msg = 'Your Comment did not submitted! did you fill all field correctly?'
+            messages.error(request, msg)
+            return redirect(f'/blog/{pid}#form')
+
+
+    Form = CommentForm()
     post = Post.objects.get(Status = True, id = pid)
-    Context = {'post': post}
+    comments = Comment.objects.filter(Post= post.id, Approved= True)
+
+    Context = {'post': post, 'comments': comments, 'Form': Form}
     return render(request, 'blog/post.html', Context)
 

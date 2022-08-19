@@ -37,3 +37,16 @@ class Post(models.Model):
             viewname= 'blog:post',
             kwargs= {'pid' : self.id}
         )
+
+    
+class Comment(models.Model):
+    Post= models.ForeignKey(Post, on_delete= models.CASCADE)
+    Name = models.CharField(max_length = 255)
+    Email = models.EmailField()
+    Message = models.TextField()
+    Created_Date = models.DateTimeField(auto_now_add= True)
+    Published_Date = models.DateTimeField(auto_now= True)
+    Approved = models.BooleanField(default= False)
+
+    def __str__(self):
+        return f"{self.Name} - {self.id}"
