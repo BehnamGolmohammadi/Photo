@@ -14,7 +14,21 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand page-scroll" href="#page-top">
-        <span>[PHOTO]</span>
+        <span>[PHOTO] |
+      </a>
+      {% if user.is_authenticated %}
+      <a class="navbar-brand page-scroll">
+        <h6><i class="fa fa-user" aria-hidden="true"></i> {{user.first_name}}</h6>
+      </a>
+      <a class="navbar-brand page-scroll" href="{% url 'accounts:logout' %}">
+        <h6><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</h6>
+      </a>
+      {% else%}
+      <a class="navbar-brand page-scroll" href="{% url 'accounts:login' %}">
+        <h6><i class="fa fa-sign-in" aria-hidden="true"></i> Login or Singup</h6>
+      </a>
+      {% endif %}
+      </span>
       </a>
     </div>
     <div class="collapse navbar-collapse navbar-right" id="menu">
