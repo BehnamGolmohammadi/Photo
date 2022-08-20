@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from website.forms import ContactForm
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from website.forms import ContactForm, NewsletterForm
 from django.contrib import messages
 # Create your views here.
 def website_home(request):
@@ -24,3 +24,20 @@ def website_contact(request):
 
     Form = ContactForm()
     return render(request, 'website/contact.html', {'Form': Form})
+
+def website_newsletter(request):
+    if request.method == 'POST':
+        Form= NewsletterForm(request.POST)
+        if Form.is_valid:
+            try:
+                Form.save()
+                messages.success(request, 'Well done.\nYou will recive newsletter every days since now.')
+            except:
+                messages.warning(request, 'Your email format is not valid\nPlease try agian.')
+                return HttpResponseRedirect('/#newsletter')
+        else:
+            print(request.POST)
+            messages.error(request, 'Your input is not like an E-mail\nPlease try agian.')
+    Form= NewsletterForm
+    return HttpResponseRedirect('/')
+

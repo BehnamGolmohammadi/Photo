@@ -1,14 +1,15 @@
 {% load static %}
 
 <!-- Newsletter form -->
-<div class="index-form text-center">
-    <h3>SUSCRIBE TO OUR NEWSLETTER </h3>
+<div class="index-form text-center" id="newsletter">
+    <h3>SUSCRIBE TO OUR NEWSLETTER</h3>
     <h5>Suscribe to receive our News and Gifts</h5>
-    <form class="form-horizontal">
+    <form class="form-horizontal" action="{% url 'website:newsletter' %}" method="post">
+      {% csrf_token %}
       <div class="form-group">
         <div class="col-xs-12 col-sm-6 col-sm-push-3 col-md-4 col-md-push-4">
-          <input class="form-control" type="text" placeholder="Type here your email address">
-          <a href="" class="btn btn-lg sr-button">SUBSCRIBE</a>
+          <input name="Email" class="form-control" type="email" placeholder="Type here your email address" pattern="[A-Za-z0-9._%+-]+@[A-za-z0-9.-]+\.[A-Za-z]{2,4}$">
+          <button type="submit" class="btn btn-lg sr-button">SUBSCRIBE</button>
         </div>
       </div>
     </form>

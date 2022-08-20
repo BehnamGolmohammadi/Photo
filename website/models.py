@@ -15,3 +15,14 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.Email + ' : ' + self.Subject
+
+class NewsLetter(models.Model):
+    Email = models.EmailField(max_length= 255)
+    Created_Date = models.DateTimeField(auto_now_add= True)
+
+    class META:
+        ordering = ['-Created_Date']
+
+    def __str__(self):
+        return self.Email
+
