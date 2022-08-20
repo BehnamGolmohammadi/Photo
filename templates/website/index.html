@@ -25,7 +25,11 @@
       </a>
       {% else%}
       <a class="navbar-brand page-scroll" href="{% url 'accounts:login' %}">
-        <h6><i class="fa fa-sign-in" aria-hidden="true"></i> Login or Singup</h6>
+        <h6><i class="fa fa-sign-in" aria-hidden="true"></i> Login</h6>
+      </a>
+
+      <a class="navbar-brand page-scroll" href="{% url 'accounts:signup' %}">
+        <h6><i class="fa fa-pencil" aria-hidden="true"></i> Sign up</h6>
       </a>
       {% endif %}
       </span>
