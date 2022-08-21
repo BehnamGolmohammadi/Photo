@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 
     # installed by programmer
     'taggit',
@@ -45,6 +47,7 @@ INSTALLED_APPS = [
     # Apps:
     'website.apps.WebsiteConfig',
     'blog.apps.BlogConfig',
+    'accounts.apps.AccountsConfig'
 ]
 
 MIDDLEWARE = [
@@ -153,3 +156,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # taggit module settings
 TAGGIT_CASE_INSENSITIVE = False
+
+
+# Site framwork settings
+SITE_ID = 2
