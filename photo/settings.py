@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # installed by programmer
     'taggit',
+    'robots',
 
     # Apps:
     'website.apps.WebsiteConfig',
@@ -160,3 +161,7 @@ TAGGIT_CASE_INSENSITIVE = False
 
 # Site framwork settings
 SITE_ID = 2
+
+# robots mudole
+ROBOTS_USE_HOST = False
+ROBOTS_USE_SITEMAP = False
