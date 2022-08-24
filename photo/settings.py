@@ -165,3 +165,11 @@ SITE_ID = 2
 # robots mudole
 ROBOTS_USE_HOST = False
 ROBOTS_USE_SITEMAP = False
+
+# email settign
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'gt.bg.78@gmail.com'
+EMAIL_HOST_PASSWORD = 'wyxxlkirhizsfptn'
