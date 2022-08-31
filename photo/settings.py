@@ -166,10 +166,10 @@ SITE_ID = 2
 ROBOTS_USE_HOST = False
 ROBOTS_USE_SITEMAP = False
 
-# email settign
+# email setting
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'linuxbehnam@gmail.com'
-EMAIL_HOST_PASSWORD = 'rkgbyccferhnucfc'
+EMAIL_HOST_PASSWORD = 'zfjvrjnjbvwpivjs'
