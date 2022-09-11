@@ -78,7 +78,7 @@ def accounts_signup(request):
                 else:
                     return redirect('/accounts/signup')
         else:
-            msg= f'Dear visitor your entired information are not valid! Maybe your email is submitted before. try to login with the button below'
+            msg= f'Dear visitor your entired information are not valid! Maybe your email or username is submitted before. try to login with the button below if you are a member.'
             messages.warning(request, msg)
             if Next:
                 return redirect(f"/accounts/signup?next={Next}")
