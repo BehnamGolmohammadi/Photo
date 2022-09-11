@@ -5,7 +5,7 @@ from accounts.froms import SignupForm
 # Create your views here.
 
 # Function to validate the password
-def password_check(request, passwd):
+def password_check(request, passwd, passwd2):
       
     SpecialSym =['$', '@', '#', '%', '.', '*']
     val = True
@@ -18,6 +18,10 @@ def password_check(request, passwd):
         messages.add_message(request, 30, 'length should be not be greater than 20')
         val = False
           
+    if passwd != passwd2:
+        messages.add_message(request, 30, 'Passwords do not match with each other')
+        val = False
+        
     if not any(char.isdigit() for char in passwd):
         messages.add_message(request, 30, 'Password should have at least one numeral')
         val = False
@@ -47,13 +51,18 @@ def accounts_signup(request):
         if Form.is_valid():
             pass1 = Form.cleaned_data.get('password')
             pass2 = request.POST['password2']
-            if not (password_check(request, pass1)):
+            if not (password_check(request, pass1, pass2)):
                 if Next :
                     return redirect(f"/accounts/signup?next={Next}")
                 else:
                     return redirect('/accounts/signup')
             elif pass1 == pass2:
-                user= Form.save()
+                # create new user without password so dont save now.
+                user = Form.save(commit = False)
+                # set password so now all fields are completed
+                user.set_password(pass1)
+                # now we can save new user
+                user.save()
                 login(request, user)
                 msg= f'Welcome {request.user.get_full_name()}, You\'ve been signed up successfully.'
                 messages.success(request, msg)
@@ -62,14 +71,14 @@ def accounts_signup(request):
                 else:
                     return redirect('/')
             else:
-                msg= f'Dear visitor your entired passwords do not match or other fields are not filled correctly'
+                msg= f'Dear visitor, fields are not filled correctly'
                 messages.warning(request, msg)
                 if Next :
                     return redirect(f"/accounts/signup?next={Next}")
                 else:
                     return redirect('/accounts/signup')
         else:
-            msg= f'Dear visitor your entired information are not valid! Maybe your email is submitted before.'
+            msg= f'Dear visitor your entired information are not valid! Maybe your email is submitted before. try to login with the button below'
             messages.warning(request, msg)
             if Next:
                 return redirect(f"/accounts/signup?next={Next}")
