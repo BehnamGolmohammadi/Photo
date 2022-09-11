@@ -14,9 +14,4 @@ class SignupForm(forms.ModelForm):
         if User.objects.filter(email=email).exists():
             raise ValidationError("An user with this email already exists!")
         return email
-
-    def clean_password2(self):
-        cd= self.cleaned_data
-        if cd ['password'] != cd['password2']:
-            raise forms.ValidationError('Passwords do not match.')
-        return cd['password2']
+        
