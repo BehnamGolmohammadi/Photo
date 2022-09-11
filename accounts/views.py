@@ -78,8 +78,14 @@ def accounts_signup(request):
                 else:
                     return redirect('/accounts/signup')
         else:
-            msg= f'Dear visitor your entired information are not valid! Maybe your email or username is submitted before. try to login with the button below if you are a member.'
-            messages.warning(request, msg)
+            msg= 'Dear visitor your entired information are not valid! check this cases:'
+            error1 = '1. Maybe your email or username is submitted before. try to login with the button below if you are a member.'
+            error2 = '2. Maybe your username and password are similar. try to use another password.'
+            error3 = '3. Maybe your password is common password. try to use a specific password.'
+            messages.add_message(request, 40, msg)
+            messages.add_message(request, 30, error1)
+            messages.add_message(request, 30, error2)
+            messages.add_message(request, 30, error3)
             if Next:
                 return redirect(f"/accounts/signup?next={Next}")
             else:
